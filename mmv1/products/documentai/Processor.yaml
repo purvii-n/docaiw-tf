@@ -45,7 +45,7 @@ properties:
   - !ruby/object:Api::Type::String
     name: 'name'
     description: |
-      The resource name of the processor.
+      The resource name of the document schema.
     output: true
     custom_flatten: templates/terraform/custom_flatten/name_from_self_link.erb
   - !ruby/object:Api::Type::String

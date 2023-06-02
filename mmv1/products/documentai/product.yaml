@@ -22,5 +22,5 @@ scopes:
   - https://www.googleapis.com/auth/cloud-platform
 apis_required:
   - !ruby/object:Api::Product::ApiReference
-    name: Document AI API
+    name: Document AI Warehouse API
     url: https://console.cloud.google.com/apis/api/documentai.googleapis.com/overview
