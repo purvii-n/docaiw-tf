@@ -8,43 +8,9 @@ references: !ruby/object:Api::Resource::ReferenceLinks
   api: 'https://cloud.google.com/document-warehouse/docs/reference/rest/v1/projects.locations.ruleSets'
 description: |
   Represents a set of rules from a single customer.
-examples:
-  - !ruby/object:Provider::Terraform::Examples
-    name: 'documentwarehouse_rule'
-    primary_resource_id: 'ruleset'
-    vars:
-      processor_name: 'test-rule'
-parameters:
-  - !ruby/object:Api::Type::String
-    name: location
-    description: |
-      The location of the resource.
-    immutable: true
-    url_param_only: true
-    required: true
 properties:
   - !ruby/object:Api::Type::String
     name: 'name'
     required: true
     description: |
       The resource name of the rule set.
-    output: true
-    custom_flatten: templates/terraform/custom_flatten/name_from_self_link.erb                                    # verify what this is + is it req
-  - !ruby/object:Api::Type::String
-    name: 'description'
-    required: true
-    immutable: true
-    description: |
-      Short description of the rule-set.
-  - !ruby/object:Api::Type::String
-    name: 'source'
-    required: true
-    immutable: true
-    description: |
-      Source of the rules
-  - !ruby/object:Api::Type::NestedObject
-    name: 'rules'                                                                                   # probably a NestedObject, check and verify again
-    required: true
-    immutable: true
-    description: |
-      List of rules given by the customer.
