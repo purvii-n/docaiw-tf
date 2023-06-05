@@ -10,56 +10,33 @@ description: |
   A document schema is used to define document structure.
 examples:
   - !ruby/object:Provider::Terraform::Examples
-  name: "document_warehouse_document_schema"
+    name: "document_warehouse_document_schema"
     primary_resource_id: "example"
     vars:
       document_schema_name: 'example-document-schema-name'
-    name: 'documentwarehouse_schema'
-    primary_resource_id: 'documentschema'
-    vars:
-      processor_name: 'test-schema'
 parameters:
   - !ruby/object:Api::Type::String
     name: location
     description: |
       The location of the resource.
-    immutable: true
-    url_param_only: true
-    required: true
 properties:
   - !ruby/object:Api::Type::String
     name: 'name'
-    required: true
     description: |
       The resource name of the document schema.
-  - !ruby/object:Api::Type::String
-    name: 'displayName'
-    description: |
-      Name of the schema given by the user.
-  - !ruby/object:Api::Type::Boolean
-    name: 'documentIsFolder'
-    description: |
-      Tells whether the document is a folder or a typical document.
-  - !ruby/object:Api::Type::NestedObject
-    name: 'propertyDefinitions'                                                                                   
-    description: |
-      Defines the metadata for a schema property.
-    output: true
     custom_flatten: templates/terraform/custom_flatten/name_from_self_link.erb                                    # verify what this is + is it req
   - !ruby/object:Api::Type::String
     name: 'displayName'
-    required: true
-    immutable: true
     description: |
       Name of the schema given by the user.
-  - !ruby/object:Api::Type::NestedObject
-    name: 'propertyDefinitions'                                                                                   # probably a NestedObject, check and verify again
-    required: true
-    immutable: true
-    description: |
-      Defines the metadata for a schema property.
   - !ruby/object:Api::Type::Boolean
     name: 'documentIsFolder'
-    immutable: true
     description: |
       Tells whether the document is a folder or a typical document.
+  # - !ruby/object:Api::Type::NestedObject
+  #   name: 'propertyDefinitions'                                                                                   
+  #   required: true
+  #   immutable: true
+  #   description: |
+  #     Defines the metadata for a schema property.
+  #   properties:
