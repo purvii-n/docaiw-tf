@@ -1,16 +1,33 @@
 --- !ruby/object:Api::Resource
 name: 'DocumentSchema'
 base_url: 'projects/{projectNumber}/locations/{location}/documentSchemas/{document_schema_id}'
-create_url:                                                                                                     # add create_url here
 references: !ruby/object:Api::Resource::ReferenceLinks
   guides:
     'Official Documentation': 'https://cloud.google.com/document-warehouse/docs/overview'
   api: 'https://cloud.google.com/document-warehouse/docs/reference/rest/v1/projects.locations.documentSchemas'
 description: |
   A document schema is used to define document structure.
+examples:
+  - !ruby/object:Provider::Terraform::Examples
+    name: "document_warehouse_document_schema"
+    primary_resource_id: "example"
+    vars:
+      document_schema_name: 'example-document-schema-name'
 properties:
   - !ruby/object:Api::Type::String
     name: 'name'
     required: true
     description: |
       The resource name of the document schema.
+  - !ruby/object:Api::Type::String
+    name: 'displayName'
+    description: |
+      Name of the schema given by the user.
+  - !ruby/object:Api::Type::Boolean
+    name: 'documentIsFolder'
+    description: |
+      Tells whether the document is a folder or a typical document.
+  - !ruby/object:Api::Type::NestedObject
+    name: 'propertyDefinitions'                                                                                   
+    description: |
+      Defines the metadata for a schema property.

@@ -1,0 +1,3 @@
+resource "google_document_warehouse_document_schema" "<%= ctx[:primary_resource_id] %>" {
+  name = "<%= ctx[:vars]['document_schema_name'] %>"
+}
