@@ -33,10 +33,38 @@ properties:
     name: 'documentIsFolder'
     description: |
       Tells whether the document is a folder or a typical document.
-  # - !ruby/object:Api::Type::NestedObject
-  #   name: 'propertyDefinitions'                                                                                   
-  #   required: true
-  #   immutable: true
-  #   description: |
-  #     Defines the metadata for a schema property.
-  #   properties:
+  - !ruby/object:Api::Type::NestedObject
+    name: 'propertyDefinitions'                                                                                   
+    immutable: true
+    description: |
+      Defines the metadata for a schema property.
+    properties:
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: |
+          The resource name of the document schema.
+      - !ruby/object:Api::Type::String
+        name: 'displayName'
+        required: true
+        description: |
+          Name of the schema given by the user.
+      - !ruby/object:Api::Type::Boolean
+        name: 'isRepeatable'
+        description: |
+          Whether the property can have multiple values.
+      - !ruby/object:Api::Type::Boolean
+        name: 'isFilterable'
+        description: |
+          Whether the property can be filtered.
+      - !ruby/object:Api::Type::Boolean
+        name: 'isSearchable'
+        description: |
+          Indicates that the property should be included in a global search.
+      - !ruby/object:Api::Type::Boolean
+        name: 'isMetadata'
+        description: |
+          Whether the property is user supplied metadata.
+      - !ruby/object:Api::Type::Boolean
+        name: 'isRequired'
+        description: |
+          Whether the property is mandatory.
